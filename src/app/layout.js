@@ -10,16 +10,34 @@ import { lightTheme, darkTheme } from "../styles/theme"
 const StyledApp = styled.div`
   color: ${(props) => props.theme.fontColor};
 
+  
   button:nth-child(1) {
-    position: absolute;
-    width: 3rem;
-    height: 3rem;
-    right: 1.9rem;
-    top: .2rem;
-    /* opacity: 0.2; */
+    width: 64px;
+    height: 64px;
+    position: fixed;
+    padding: 1.6rem;
     cursor: pointer;    
-    /* background: none;  */
+    border-radius: 9999px;
+
+    right: 2.5rem;
+    bottom: 2.5rem;
+
+    z-index: 10;
+
     border: none;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px;
+
+    backdrop-filter: blur(64px);
+
+    background-color: hsla(0,0%,99%,.1);
+
+    img:nth-child(1) {
+      display: ${(props) => (props.theme.body === 'rgba(181, 173, 182, 0.7)' ? 'none' : '1')};
+    }
+    
+    img:nth-child(2) {   
+      display: ${(props) => (props.theme.body === 'rgb(0, 23, 31)' ? 'none' : '1')};
+    }
   }
 `
 
@@ -40,7 +58,7 @@ export default function RootLayout({ children }) {
       <body>
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme }>
         <GlobalStyles />
-        <StyledApp> <button id='button' onClick={() => themeToggler()}></button>
+        <StyledApp> <button id='button' onClick={() => themeToggler()}><img src="/sun.svg" alt=""/><img src="/moon.svg" alt="" /></button>
           <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
           </StyledApp>
         </ThemeProvider>

@@ -25,6 +25,10 @@ export default createGlobalStyle`
         outline: none;
     }
 
+    ol, ul {
+        list-style: none;
+    }
+
     a {
         text-decoration: none;
     }
