@@ -68,6 +68,18 @@ const Content = styled.div`
 
   padding-top: 18rem;
 
+  .HelloTitle {
+      position: absolute;
+      left: -10rem;
+      top: 2rem;
+      transform: rotate(40deg);
+
+
+      z-index: -10;
+      width: 31.5rem;
+      height: 31.5rem;
+    }
+
 
   .title {
     h4 {
@@ -86,12 +98,13 @@ const Content = styled.div`
     }
 
     p {
-      text-align: justify;
-      margin-top: 3rem;
+      margin-top: 3.5rem;
       font-size: 1.4rem;
-      line-height: 1.5rem;
+      line-height: 2.5rem;
       color: hsla(0,0%,99%,.7);
     }
+
+    
   }
 
   .titleButton {
@@ -130,7 +143,8 @@ const Content = styled.div`
   }
 
   .photo {
-    margin-top: 12rem;
+    margin-top: 6rem;
+    text-align: center;
 
     img {
       width: 315px;
@@ -158,6 +172,103 @@ const Content = styled.div`
   }
 `
 
+const About = styled.div`
+  padding: 0 2.4rem;
+
+  margin-top: 5rem;
+
+  .title {
+    text-align: center;
+
+    border-bottom-width: .2rem;
+    border-bottom-style: solid;
+    border-bottom-color: ${(props) => (props.theme.body === 'rgb(0, 23, 31)' ? '#fff' : '#000')};
+  }
+
+  h2 {
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 800;
+    color: ${(props) => (props.theme.body === 'rgb(0, 23, 31)' ? 'hsla(0,0%,99%,.8)' : 'rgb(213 41 166)')}; 
+    letter-spacing: .2rem;
+  }
+
+  img {
+    margin-top: 3rem;
+    width: 31.5rem;
+    height: 31.5rem;
+  }
+
+  p {
+    text-align: justify;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    color: ${(props) => (props.theme.body === 'rgb(0, 23, 31)' ? 'rgb(153, 162, 165)' : 'rgba(36,43,51,.7)')}; 
+    margin-bottom: 2rem;
+  }
+
+  span {
+    font-weight: 600;
+    color: ${(props) => (props.theme.body === 'rgb(0, 23, 31)' ? 'hsla(0,0%,99%,.8)' : 'rgb(213 41 166)')}; 
+  }
+
+  .contactSection {
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    h4 {
+        font-size: 1.4rem;
+        margin-top: 3rem;
+        color: ${(props) => (props.theme.body === 'rgb(0, 23, 31)' ? 'rgb(153 162 165)' : 'rgba(36,43,51,.7)')}; 
+      }
+
+    .locationSection {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .phoneSection {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .mailSection {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+
+`
+
+const Separator = styled.div`
+position: relative;
+    margin-top: 5rem;
+    height: 7rem;
+    background-color: rgba(213,41,166,.1);
+    transform: matrix(1, -0.0349208, 0, 1, 0, 0);
+    filter: drop-shadow(rgba(0, 0, 0, 0.25) 8px 6px 4px);
+    fill: rgba(255, 255, 255, 0.11);
+    box-shadow: rgba(0,0,0,0) 0px 0px 0px 0px, rgba(0,0,0,0) 0px 0px 0px 0px, rgba(0,0,0,0.1) -2px 2px 4px 3px, rgba(0,0,0,0.1) -1px -4px 20px 1px;
+    margin-bottom: 50rem;
+
+    .separatorSection {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 2.2rem;
+      gap: 2rem;
+
+      h3 {
+        color: ${(props) => (props.theme.body === 'rgb(0, 23, 31)' ? 'rgb(153, 162, 165)' : 'rgb(213 41 166)')}; 
+      }
+    }
+`
+
 
 
 export default function Home() {
@@ -167,6 +278,7 @@ export default function Home() {
       <Header />
 
       <Content id="#home">
+        <img className="HelloTitle" src="/bye.webp" alt="" />
         <div className="title">
           <h4 className={roboto.className}>Seja bem vindo(a)!</h4>
           <h3 className={roboto.className}>Me chamo Lucas Andrade</h3>
@@ -192,11 +304,40 @@ export default function Home() {
           </a>
         </div>
         <div className="photo">
-          <img src="/eu.jpeg" alt="" />
-          <img src="/clouds.png" alt="" />
-          <img src="/clouds.png" alt="" />
+            <img src="/happy.webp" alt="" />
         </div>
       </Content>
+
+      <About>
+          <div className="title">
+            <h2 className={roboto.className}>Sobre mim</h2>
+            <img src="/ideia.webp" alt="" />
+            <p className={roboto.className}>Olá! Sou Lucas Andrade, um <span>dev FullStack</span> atualmente focado no Frontend. Adoro dar vida aos designs do Figma, transformando-os em experiências interativas e <span>totalmente responsivas</span>. Minha jornada tech é uma constante busca por conhecimento, sempre de olho em <span>novos frameworks e bibliotecas</span> para impulsionar meu desenvolvimento diário. Não gosto da ideia do comodismo, então estou sempre atrás de <span>novos desafios</span> para me aprimorar. Seja bem-vindo ao meu mundo onde código e design se encontram para criar <span>experiências incríveis!</span></p>
+          </div>
+          <div className="contactSection">
+            <div className="locationSection">
+              <img src="/location.svg" alt="" />
+              <h4 className={roboto.className}>Minas Gerais, Brasil</h4>
+            </div>
+            <div className="phoneSection">
+              <img src="/phone.svg" alt="" />
+              <h4 className={roboto.className}>+55 31 98470-2550</h4>
+            </div>
+            <div className="mailSection">
+              <img src="/mail.svg" alt="" />
+              <h4 className={roboto.className}>contato.developerlucas@gmail.com</h4>
+            </div>
+          </div>
+      </About>
+
+      <Separator>
+          <div className="separatorSection">
+              <h3>Starbucks</h3>
+              <h3>Google</h3>
+              <h3>Behance</h3>
+              <h3>Tesla</h3>
+          </div>
+      </Separator>
 
 
       <BackgroundBlur>
