@@ -82,7 +82,6 @@ const Content = styled.div`
       height: 31.5rem;
     }
 
-
   .title {
     h4 {
       font-size: 1.8rem;
@@ -303,13 +302,15 @@ position: relative;
 const SkillsSection = styled.div`
   padding: 0 2.4rem;
 
-
   .likeMemoji {
-    width: 15rem;
-    height: 15rem;
+    width: 17rem;
+    height: 17rem;
     position: absolute;
     z-index: -10;
 
+    transform: rotate(15deg);
+    margin-top: -4rem;
+    left: -3rem;
   }
 
   .sectionTitle {
@@ -353,22 +354,20 @@ const SkillsSection = styled.div`
 const ProjectSection = styled.div`
   padding: 0 2.4rem;
 
-  .pcMemoji {
-    width: 15.5rem;
-    height: 15.5rem;
-
-    position: absolute;
-    left: -2rem;
-    top: 240rem;
-
-    z-index: -10;
-
-  }
-  
-
   .sectionTitle {
     margin-top: 10rem;
     text-align: center;
+
+    img {
+      width: 15rem;
+      height: 15rem;
+
+      position: absolute;
+      margin-left: 3.2rem;
+      margin-top: -6.3rem;
+
+      z-index: -10;
+    }
       
     h2 {
       font-size: 3rem;
@@ -387,6 +386,81 @@ const ProjectSection = styled.div`
   }
 `;
 
+const ContactSection = styled.div`
+  padding: 0 2.4rem;
+  margin-top: 5rem;
+
+  img {
+    width: 15rem;
+    height: 15rem;
+
+    position: absolute;
+    margin-top: -6.3rem;
+
+    z-index: -10;
+  }
+
+  h2 {
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 800;
+    color: ${(props) => (props.theme.body === 'rgb(0, 23, 31)' ? 'hsla(0,0%,99%,.8)' : 'rgb(213 41 166)')}; 
+    letter-spacing: .2rem;
+  }
+
+  .inputSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 5rem;
+    
+    margin-top: 4rem;
+    border-radius: .8rem;
+
+    background-color: hsla(0,0%,99%,.2);
+
+  }
+
+  .input-group {
+    width: 100%;
+  }
+
+  .input-group label {
+    position: absolute;
+    margin-top: 2rem;
+    left: 8.7rem;
+    transform: translateY(-50%);
+    padding: 0 5px;
+    pointer-events: none;
+    color: rgb(0,23,31);
+    transition: .5s;
+    
+  }
+
+  .input-group input {
+    width: 100%;
+    height: 4rem;
+    margin-bottom: 3rem;
+    background: rgb(235, 238, 239);
+    color: rgb(0,23,31);
+    padding: 0 10px;
+    border: 1.2px solid #fff;
+    outline: none;
+    border-radius: 5px;
+  }
+
+  .input-group input:focus~label,
+  .input-group input:valid~label {
+    margin-top: 0;
+    font-size: 1.3rem;
+    color: rgb(0,23,31);
+    background-color: rgb(235, 238, 239);
+    z-index: 1111;
+  }
+`
+
+
 
 export default function Home() {
   return (
@@ -396,6 +470,7 @@ export default function Home() {
 
       <Content id="#home">
         <img className="HelloTitle" src="/bye.webp" alt="" />
+
         <div className="title">
           <h4 className={roboto.className}>Seja bem vindo(a)!</h4>
           <h3 className={roboto.className}>Me chamo Lucas Andrade</h3>
@@ -460,8 +535,8 @@ export default function Home() {
 
       <SkillsSection>
         <div className="sectionTitle">
+          <img className="likeMemoji" src="likeE.webp" alt="" />
           <h2 className={roboto.className}>Skills</h2>
-          <img className="likeMemoji" src="like.webp" alt="" />
         </div>
         <div className="skillsIcon">
           <img src="/js.svg" alt="" />
@@ -477,9 +552,9 @@ export default function Home() {
 
       <ProjectSection>
         <div className="sectionTitle">
+          <img className="pcMemoji" src="/pc.webp" alt="" />
           <h2 className={roboto.className}>Projetos</h2>
         </div>
-        <img className="pcMemoji" src="/pc.webp" alt="" />
         <div className="cardSection">
           <Card image="/teste.png" title="Desafio Prominas" desc="Desafio Landing Page utilizando NextJS, ReactJS e uma API integrada com MongoDB" techs={['nextjs.svg', 'react.svg', 'js.svg']} />
           <Card image="/teste.png" title="Desafio Prominas" desc="Desafio Landing Page utilizando NextJS, ReactJS e uma API integrada com MongoDB" techs={['nextjs.svg', 'react.svg', 'js.svg']} />
@@ -487,6 +562,27 @@ export default function Home() {
           <Card image="/teste.png" title="Desafio Prominas" desc="Desafio Landing Page utilizando NextJS, ReactJS e uma API integrada com MongoDB" techs={['nextjs.svg', 'react.svg', 'js.svg']} />
         </div>
       </ProjectSection>
+
+      <ContactSection>
+        <div className="contactSection">
+          <img src="/hanglose.webp" alt="" />
+          <h2 className={roboto.className}>Contato</h2>
+        </div>
+        <div className="inputSection">
+          <div className="input-group">
+            <input type="text" required />
+            <label htmlFor="">Nome</label>
+          </div>
+          <div className="input-group">
+            <input type="email" required />
+            <label htmlFor="">E-mail</label>
+          </div>
+          <div className="input-group">
+            <input type="textarea" required />
+            <label htmlFor="">Mensagem</label>
+          </div>
+        </div>
+      </ContactSection>
 
 
       <BackgroundBlur>
