@@ -9,6 +9,9 @@ export const Container = styled.div`
     
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     --webkit-backdrop-filter: blur(10px);
+    --moz-backdrop-filter: blur(10px);
+    --o-backdrop-filter: blur(10px);
+    --ms-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 0 0 15px 15px;
     border-bottom: 1px solid;

@@ -4,6 +4,7 @@ import { Header } from "@/components/Header"
 import { Button } from "@/components/Button"
 import { Roboto } from "next/font/google"
 import { SlideCard } from "@/components/SlideCard"
+import { Card } from "@/components/Cards"
 import styled from "styled-components"
 
 const roboto = Roboto({ weight: '400', style: 'normal', subsets: ['latin'] })
@@ -11,6 +12,7 @@ const roboto = Roboto({ weight: '400', style: 'normal', subsets: ['latin'] })
 const Container = styled.div`
   width: 100%;
   height: 100%;
+
 `
 
 const BackgroundBlur = styled.div`
@@ -147,8 +149,8 @@ const Content = styled.div`
     text-align: center;
 
     img {
-      width: 315px;
-      height: 315px;
+      width: 31.5rem;
+      height: 31.5rem;
 
       border-radius: 50%;
     }
@@ -301,18 +303,27 @@ position: relative;
 const SkillsSection = styled.div`
   padding: 0 2.4rem;
 
+
+  .likeMemoji {
+    width: 15rem;
+    height: 15rem;
+    position: absolute;
+    z-index: -10;
+
+  }
+
   .sectionTitle {
-        margin-top: 4rem;
-        text-align: center;
-      
-        h2 {
-          font-size: 3rem;
+    margin-top: 6rem;
     text-align: center;
-    font-weight: 800;
-    color: ${(props) => (props.theme.body === 'rgb(0, 23, 31)' ? 'hsla(0,0%,99%,.8)' : 'rgb(213 41 166)')}; 
-    letter-spacing: .2rem;
-        }
+      
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+      font-weight: 800;
+      color: ${(props) => (props.theme.body === 'rgb(0, 23, 31)' ? 'hsla(0,0%,99%,.8)' : 'rgb(213 41 166)')}; 
+      letter-spacing: .2rem;
     }
+  }
 
 
   .skillsIcon {
@@ -339,6 +350,42 @@ const SkillsSection = styled.div`
   }
 `
 
+const ProjectSection = styled.div`
+  padding: 0 2.4rem;
+
+  .pcMemoji {
+    width: 15.5rem;
+    height: 15.5rem;
+
+    position: absolute;
+    left: -2rem;
+    top: 240rem;
+
+    z-index: -10;
+
+  }
+  
+
+  .sectionTitle {
+    margin-top: 10rem;
+    text-align: center;
+      
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+      font-weight: 800;
+      color: ${(props) => (props.theme.body === 'rgb(0, 23, 31)' ? 'hsla(0,0%,99%,.8)' : 'rgb(213 41 166)')}; 
+      letter-spacing: .2rem;
+    }
+  }
+
+  .cardSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+  }
+`;
 
 
 export default function Home() {
@@ -414,6 +461,7 @@ export default function Home() {
       <SkillsSection>
         <div className="sectionTitle">
           <h2 className={roboto.className}>Skills</h2>
+          <img className="likeMemoji" src="like.webp" alt="" />
         </div>
         <div className="skillsIcon">
           <img src="/js.svg" alt="" />
@@ -426,6 +474,19 @@ export default function Home() {
           <img src="/git.svg" alt="" />
         </div>
       </SkillsSection>
+
+      <ProjectSection>
+        <div className="sectionTitle">
+          <h2 className={roboto.className}>Projetos</h2>
+        </div>
+        <img className="pcMemoji" src="/pc.webp" alt="" />
+        <div className="cardSection">
+          <Card image="/teste.png" title="Desafio Prominas" desc="Desafio Landing Page utilizando NextJS, ReactJS e uma API integrada com MongoDB" techs={['nextjs.svg', 'react.svg', 'js.svg']} />
+          <Card image="/teste.png" title="Desafio Prominas" desc="Desafio Landing Page utilizando NextJS, ReactJS e uma API integrada com MongoDB" techs={['nextjs.svg', 'react.svg', 'js.svg']} />
+          <Card image="/teste.png" title="Desafio Prominas" desc="Desafio Landing Page utilizando NextJS, ReactJS e uma API integrada com MongoDB" techs={['nextjs.svg', 'react.svg', 'js.svg']} />
+          <Card image="/teste.png" title="Desafio Prominas" desc="Desafio Landing Page utilizando NextJS, ReactJS e uma API integrada com MongoDB" techs={['nextjs.svg', 'react.svg', 'js.svg']} />
+        </div>
+      </ProjectSection>
 
 
       <BackgroundBlur>
