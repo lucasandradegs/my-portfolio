@@ -8,8 +8,8 @@ export const Container = styled.div`
     padding: 0 2.4rem;
     
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(10px);
     --webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border-radius: 0 0 15px 15px;
     border-bottom: 1px solid;
     box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.37);
